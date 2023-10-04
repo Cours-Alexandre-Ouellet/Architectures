@@ -17,12 +17,11 @@ class ListerActivites(controleur : ControleurAbstrait) : VueAbstraite(controleur
             println("Aucune activite trouvee")
         } else {
             // Pour chaque activité
-            activites.forEach { a ->
-                run {
-                    // Conversion en activite comme on a une List<*>
-                    val activite = a as Activite
-                    println("${activite.nom} : ${obtenirService<ConvertisseurFormatHeure>().formatter(activite.duree)}")
-                }
+            val serviceFormattageHeure = obtenirService<ConvertisseurFormatHeure>()
+
+            for(a in activites) {
+               val activite = a as Activite
+                println("${activite.nom} : ${serviceFormattageHeure.formatter(activite.duree)}")
             }
         }
         println()
@@ -40,9 +39,7 @@ class ListerActivites(controleur : ControleurAbstrait) : VueAbstraite(controleur
             println("1) Ajouter une activite")
             println("0) Quitter le systeme")
 
-            val entreeClavier: Int = readln().toInt()
-
-            when (entreeClavier) {
+            when (readln().toInt()) {
                 0 -> {
                     choixValide = true
                 }

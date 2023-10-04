@@ -24,7 +24,8 @@ class ControleurActivite(contexte: Contexte) : ControleurAbstrait(contexte) {
      */
     fun enregistrerActivite(donnees : Map<String, Any>) {
 
-        // Inclure un service de validation
+        // TODO: Inclure un service de validation
+
         val nom = donnees.getOrDefault("nom"){""} as String
         val duree = contexte.services.obtenirService<ConvertisseurFormatHeure>().extraireTemps(
             donnees.getOrDefault("duree"){""} as String
