@@ -1,10 +1,11 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    kotlin("plugin.serialization") version "1.6.0"
     application
 }
 
 group = "edu.cegepvicto"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -12,11 +13,12 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation(kotlin("reflect"))
 }
 
 application {
-    mainClass.set("edu.cegepvicto.LanceurKt")
+    mainClass.set("edu.cegepvicto.architectures.LanceurKt")
 }
 
 tasks.named<JavaExec>("run") {

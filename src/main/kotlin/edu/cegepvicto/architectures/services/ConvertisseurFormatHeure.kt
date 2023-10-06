@@ -1,7 +1,7 @@
-package edu.cegepvicto.services
+package edu.cegepvicto.architectures.services
 
-import edu.cegepvicto.architecture.ExceptionConversionHeure
-import edu.cegepvicto.architecture.IService
+import edu.cegepvicto.architectures.architecture.ExceptionConversionHeure
+import edu.cegepvicto.architectures.architecture.IService
 import java.util.*
 import kotlin.math.floor
 import kotlin.math.round

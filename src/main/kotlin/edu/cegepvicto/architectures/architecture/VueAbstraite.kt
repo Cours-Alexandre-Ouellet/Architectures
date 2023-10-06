@@ -1,4 +1,4 @@
-package edu.cegepvicto.architecture
+package edu.cegepvicto.architectures.architecture
 
 /**
  * Classe de base qui gère l'affichage des différentes vues du système. Fournit des

@@ -1,4 +1,4 @@
-package edu.cegepvicto.activites
+package edu.cegepvicto.architectures.activites
 
 /**
  * Interface de manipulation des sauvegardes d'activités

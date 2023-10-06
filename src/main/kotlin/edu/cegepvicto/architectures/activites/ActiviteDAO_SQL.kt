@@ -1,6 +1,6 @@
-package edu.cegepvicto.activites
+package edu.cegepvicto.architectures.activites
 
-import edu.cegepvicto.architecture.IService
+import edu.cegepvicto.architectures.architecture.IService
 
 /**
  * Implémentation de la DAO pour les activités dans le contexte de données stockées en SQL.

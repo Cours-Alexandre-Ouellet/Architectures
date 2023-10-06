@@ -1,8 +1,8 @@
-package edu.cegepvicto.activites
+package edu.cegepvicto.architectures.activites
 
-import edu.cegepvicto.architecture.Contexte
-import edu.cegepvicto.architecture.ControleurAbstrait
-import edu.cegepvicto.services.ConvertisseurFormatHeure
+import edu.cegepvicto.architectures.architecture.Contexte
+import edu.cegepvicto.architectures.architecture.ControleurAbstrait
+import edu.cegepvicto.architectures.services.ConvertisseurFormatHeure
 
 /**
  * Contrôleur qui gère les différentes activités dans le système.
@@ -56,7 +56,7 @@ class ControleurActivite(contexte: Contexte) : ControleurAbstrait(contexte) {
             contexte.services.obtenirService<ActiviteDAO_Json>()
         }
 
-        val activites = dao.listerTout()
+        val activites : List<Activite> = dao.listerTout()
         rendre(ListerActivites(this), mapOf(Pair("activites", activites)))
     }
 }

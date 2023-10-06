@@ -1,4 +1,4 @@
-package edu.cegepvicto.architecture
+package edu.cegepvicto.architectures.architecture
 
 /**
  * CLasse responsable de la localisation des services dans le système et de la gestion de leur instance unique

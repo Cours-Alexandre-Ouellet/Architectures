@@ -1,4 +1,4 @@
-package edu.cegepvicto.architecture
+package edu.cegepvicto.architectures.architecture
 
 import kotlin.reflect.full.declaredMemberFunctions
 

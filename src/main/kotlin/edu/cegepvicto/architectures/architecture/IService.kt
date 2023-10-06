@@ -1,4 +1,4 @@
-package edu.cegepvicto.architecture
+package edu.cegepvicto.architectures.architecture
 
 /**
  * Interface commune à tous les services du système

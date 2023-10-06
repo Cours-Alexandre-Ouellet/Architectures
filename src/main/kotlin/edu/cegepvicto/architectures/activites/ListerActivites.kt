@@ -1,8 +1,8 @@
-package edu.cegepvicto.activites
+package edu.cegepvicto.architectures.activites
 
-import edu.cegepvicto.architecture.ControleurAbstrait
-import edu.cegepvicto.architecture.VueAbstraite
-import edu.cegepvicto.services.ConvertisseurFormatHeure
+import edu.cegepvicto.architectures.architecture.ControleurAbstrait
+import edu.cegepvicto.architectures.architecture.VueAbstraite
+import edu.cegepvicto.architectures.services.ConvertisseurFormatHeure
 
 /**
  * Vue qui affiche la liste des activités
@@ -45,6 +45,17 @@ class ListerActivites(controleur : ControleurAbstrait) : VueAbstraite(controleur
                 }
                 1 -> {
                     appeler<ControleurActivite>("ajouterActivite", mapOf<String, Any>())
+                    /*
+                     * Sans la methode appeler, le code serait :
+                     * ControleurActivite(controleurActivite.contexte).ajouterActivite()
+                     *
+                     * On remarque l'absence de paramètre donnees, car les méthodes n'ont plus besoin d'avoir
+                     * une interface commune. De plus, à chaque fois que l'on appelle un contrôleur, il faut
+                     * lui passer le contexte. Cette opération peut sembler annodine, mais c'est simplement parce
+                     * que notre façon d'initialiser le contrôleur est simple. Si les contrôleurs avaient besoin de
+                     * plusieurs paramètres, il faudrait tous les passer à chaque (et s'assurer qu'ils soient toujours
+                     * tous disponibles à chaque fois.)
+                     */
                     choixValide = true
                 }
                 else -> {
