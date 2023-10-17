@@ -16,7 +16,7 @@ class ConvertisseurFormatHeure : IService {
     }
 
     /**
-     * Formate en une chaîne de caractères une donnée temporelle sous forme de float. Le [temps] indiqué
+     * Formatte en une chaîne de caractères une donnée temporelle sous forme de float. Le [temps] indiqué
      * sera représenté en utilisant le [separateur] pour séparer les heures des minutes. Si [zeroMeneur] est
      * vrai, alors les heures plus petites que 10 commencent par un zéro pour assurer un format ##.
      * */

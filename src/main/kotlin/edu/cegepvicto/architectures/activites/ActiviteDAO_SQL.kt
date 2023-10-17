@@ -19,7 +19,7 @@ class ActiviteDAO_SQL : IActiviteDAO, IService {
     override fun listerTout(): List<Activite> {
         // Exécuter SELECT * FROM Activite;
 
-        return activites
+        return activites.toList()
     }
 
     override fun initialiser() {

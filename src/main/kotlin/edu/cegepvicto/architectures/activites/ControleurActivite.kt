@@ -32,11 +32,7 @@ class ControleurActivite(contexte: Contexte) : ControleurAbstrait(contexte) {
         )
 
         val activite = Activite(nom, duree)
-        val dao = if(contexte.modeSauvegarde == "SQL") {
-            contexte.services.obtenirService<ActiviteDAO_SQL>()
-        } else {
-            contexte.services.obtenirService<ActiviteDAO_Json>()
-        }
+        val dao = obtenirDAO()
         dao.enregistrer(activite)
 
         // Redirection après enregistrement vers la liste d'activité
@@ -49,14 +45,16 @@ class ControleurActivite(contexte: Contexte) : ControleurAbstrait(contexte) {
      * Le paramètre [donnees] est ignoré.
      */
     fun listeActivite(donnees: Map<String, Any>) {
-        // Code copié  :'(
-        val dao = if(contexte.modeSauvegarde == "SQL") {
-            contexte.services.obtenirService<ActiviteDAO_SQL>()
+        val dao = obtenirDAO()
+        val activites : List<Activite> = dao.listerTout()
+        rendre(ListerActivites(this), mapOf(Pair("activites", activites)))
+    }
+
+    fun obtenirDAO() :IActiviteDAO {
+        return if(contexte.modeSauvegarde == "SQL") {
+             contexte.services.obtenirService<ActiviteDAO_SQL>()
         } else {
             contexte.services.obtenirService<ActiviteDAO_Json>()
         }
-
-        val activites : List<Activite> = dao.listerTout()
-        rendre(ListerActivites(this), mapOf(Pair("activites", activites)))
     }
 }
